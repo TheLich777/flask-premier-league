@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3 mb-3">
+    <h2>{{ title }}</h2>
+    <hr>
+
+    <form method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Player Name</label>
+        <input name="name" type="text" class="form-control" id="name" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Position</label>
+        <select name="position" class="form-select">
+          <option value="Goalkeeper">Goalkeeper</option>
+          <option value="Defender">Defender</option>
+          <option value="Midfielder">Midfielder</option>
+          <option value="Forward">Forward</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="nationality" class="form-label">Nationality</label>
+        <input name="nationality" type="text" class="form-control" id="nationality" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="goal" class="form-label">Goals</label>
+        <input name="goal" type="number" class="form-control" id="goal" value="0" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="squad_no" class="form-label">Squad No</label>
+        <input name="squad_no" type="number" class="form-control" id="squad_no">
+      </div>
+
+      <div class="mb-3">
+        <label for="img" class="form-label">Image URL</label>
+        <input name="img" type="text" class="form-control" id="img" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Club</label>
+        <select name="club_id" class="form-select" required>
+          {% for club in clubs %}
+            <option value="{{ club.id }}">{{ club.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-outline-success">
+        <i class="bi bi-folder-plus"></i>
+        New Player
+      </button>
+    </form>
+  </div>
+{% endblock %}

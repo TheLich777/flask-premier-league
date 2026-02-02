@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>{{title}}</h2>
+    <hr>
+    <div class="row mb-3">
+      <div class="col-md-4 mt-3">
+        <div class="card">
+          <img src="{{ club.logo }}" alt="" class="img-thumbnail p-5">
+          <div>
+            <h4 class="text-center text-success">
+              Club Logo
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col"><h2>Club Name</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ club.name }}</h2></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col"><h2>Stadium Name</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ club.stadium }}</h2></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col"><h2>Year</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">EST. {{ club.year }}</h2></div>
+            </div>
+            <hr>
+            <div class="row mt-5">
+              <div class="col">
+                <a href="{{ url_for('all_clubs') }}" class="btn btn-outline-success">
+                  <i class="bi bi-house-up-fill"></i>
+                  Back to Club Page
+                </a>
+              </div>
+
+              <div class="col text-end">
+                <a href="{{ url_for('update_club', club_id=club.id) }}" class="btn btn-outline-success">
+                  <i class="bi bi-pencil-square"></i>
+                  Edit Club
+                </a>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+{% endblock %}

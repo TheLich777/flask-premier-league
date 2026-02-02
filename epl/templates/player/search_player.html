@@ -1,0 +1,17 @@
+{% for player in players %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ player.name }}</td>
+    <td>
+      <a href="{{ url_for('player_detail', player_id=player.id) }}" class="btn btn-outline-info btn-sm">
+        <i class="bi bi-info-circle"></i>
+      </a>
+    </td>
+  </tr>
+{% endfor %}
+
+{% if players|length == 0 %}
+  <tr>
+    <td colspan="3" class="text-center text-muted">ไม่พบผู้เล่น</td>
+  </tr>
+{% endif %}

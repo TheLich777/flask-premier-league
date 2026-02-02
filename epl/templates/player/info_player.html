@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3 mb-3">
+    <h2>{{ title }}</h2>
+    <hr>
+
+    <div class="row mb-3">
+      <div class="col-md-4 mt-3">
+        <div class="card">
+          <img src="{{ player.img }}" alt="" class="img-thumbnail p-5">
+          <div>
+            <h4 class="text-center text-success">Player Photo</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 mt-3">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col"><h2>Player Name</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.name }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col"><h2>Position</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.position }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col"><h2>Nationality</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.nationality }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col"><h2>Goals</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.goal }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col"><h2>Squad No</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.squad_no }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col"><h2>Club</h2></div>
+              <div class="col"><h2 class="text-secondary float-end">{{ player.club.name }}</h2></div>
+            </div>
+            <hr>
+
+            <div class="row mt-5">
+              <div class="col">
+                <a href="{{ url_for('all_players') }}" class="btn btn-outline-success">
+                  <i class="bi bi-house-up-fill"></i>
+                  Back to Player Page
+                </a>
+              </div>
+              <div class="col text-end">
+                <a href="{{ url_for('update_player', player_id=player.id) }}" class="btn btn-outline-success">
+                  <i class="bi bi-pencil-square"></i>
+                  Edit Player
+                </a>
+              </div>
+            </div>
+
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

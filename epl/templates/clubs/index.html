@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>{{title}}</h2>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <a href="{{ url_for('new_club') }}" class="btn btn-outline-success">
+          <i class="bi bi-folder-plus"></i>
+          Add New Club
+        </a>
+      </div>
+      <div class="col">
+        <form method="post"
+        hx-target="#result"
+        hx-post="{{ url_for('search_clubs') }}"
+        hx-trigger="submit"
+        hx-on::after-request="if(event.detail.successful) this.reset()">
+          <div class="input-group mb-3">
+            <input name="club_name" type="text" class="form-control" placeholder="Search by Club's name">
+            <button class="btn btn-outline-secondary" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <table class="table table-hover mt-3">
+      <thead>
+        <th>#</th>
+        <th>Club Name</th>
+        <th>Action</th>
+      </thead>
+      <tbody id="result">
+        {% for club in clubs %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ club.name }}</td>
+            <td>
+              <a href="{{ url_for('club_info', club_id=club.id) }}" class="btn btn-outline-info btn-sm">
+                <i class="bi bi-info-circle"></i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

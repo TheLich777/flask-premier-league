@@ -10,7 +10,7 @@ class Club(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False, unique=True)
-    stadium: Mapped[str] = mapped_column(String(100), nullable=False, unique=True)
+    stadium: Mapped[str] = mapped_column(String(100), nullable=False)
     year: Mapped[int] = mapped_column(Integer, nullable=False)
     logo: Mapped[str] = mapped_column(String(200), nullable=False)
 
@@ -27,6 +27,7 @@ class Player(db.Model):
     position: Mapped[str] = mapped_column(String(50), nullable=False)
     nationality: Mapped[str] = mapped_column(String(50), nullable=False)
     goal: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    squad_no: Mapped[int] = mapped_column(Integer, nullable=True)
     img: Mapped[str] = mapped_column(String(200), nullable=False)
 
     club_id: Mapped[int] = mapped_column(ForeignKey("clubs.id"), nullable=False)
