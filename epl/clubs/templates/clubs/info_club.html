@@ -39,14 +39,14 @@
             <hr>
             <div class="row mt-5">
               <div class="col">
-                <a href="{{ url_for('all_clubs') }}" class="btn btn-outline-success">
+                <a href="{{ url_for('clubs.all_clubs') }}" class="btn btn-outline-success">
                   <i class="bi bi-house-up-fill"></i>
                   Back to Club Page
                 </a>
               </div>
 
               <div class="col text-end">
-                <a href="{{ url_for('update_club', club_id=club.id) }}" class="btn btn-outline-success">
+                <a href="{{ url_for('clubs.update_club', club_id=club.id) }}" class="btn btn-outline-success">
                   <i class="bi bi-pencil-square"></i>
                   Edit Club
                 </a>

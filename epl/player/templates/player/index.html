@@ -11,7 +11,7 @@
 
     <div class="row">
       <div class="col">
-        <a href="{{ url_for('new_player') }}" class="btn btn-outline-success">
+        <a href="{{ url_for('players.new_player') }}" class="btn btn-outline-success">
           <i class="bi bi-folder-plus"></i>
           Add New Player
         </a>
@@ -20,7 +20,7 @@
       <div class="col">
         <form method="post"
               hx-target="#result"
-              hx-post="{{ url_for('search_players') }}"
+              hx-post="{{ url_for('players.search_players') }}"
               hx-trigger="submit"
               hx-on::after-request="if(event.detail.successful) this.reset()">
           <div class="input-group mb-3">
